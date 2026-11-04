@@ -53,28 +53,7 @@
         </div>
     </div>
 </nav>
-<section class=container>
-    {% if product %}
-    <div class="row">
-        {% for p in product %}
-        <div class="col-md-3 col-6">
-            <div class="card">
-                <img class="card-img-top" src="{{ p.image }}" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title">{{ p.name }}</h4>
-                    <p class="card-text">{{ p.price }}</p>
-                    <a href="#" class="btn btn-primary">More Details</a>
-                    <button class="btn btn-danger">Purchase</button>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class = "alert alert-warning">PRODUCT IS NOT AVAILABLE</div>
-    {% endif %}
 
-</section>
 <footer>
     <div class="mt-4 p-5 bg-primary text-white rounded">
         <h1>TAICUTE MOBILE SHOP</h1>

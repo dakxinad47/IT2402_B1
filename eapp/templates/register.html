@@ -3,5 +3,21 @@
 {% block title %}Dang Ky{% endblock %}
 
 {% block content %}
-    <h1 class="text-center text-success mt-2">DANG KY NGUOI DUNG</h1>
+<h1 class="text-center text-success mt-2">DANG KY NGUOI DUNG</h1>
+
+<form method="post" action="/register">
+    <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="username" placeholder="User Name" name="username">
+        <label for="username">User Name</label>
+    </div>
+
+    <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
+    </div>
+
+    <div class="form-floating mb-3 st-3">
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </div>
+</form>
 {% endblock %}

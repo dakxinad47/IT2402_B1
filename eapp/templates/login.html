@@ -3,5 +3,21 @@
 {% block title %}Dang Nhap{% endblock %}
 
 {% block content %}
-    <h1 class="text-center text-success mt-2">DANG NHAP NGUOI DUNG</h1>
+<h1 class="text-center text-success mt-2">DANG NHAP NGUOI DUNG</h1>
+
+<form method="post" action="/login">
+    <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="username" placeholder="User Name" name="username">
+        <label for="username">User Name</label>
+    </div>
+
+    <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
+    </div>
+
+    <div class ="form-floating mb-3 st-3">
+        <button type="submit" class ="btn btn-success">Sign In</button>
+    </div>
+</form>
 {% endblock %}

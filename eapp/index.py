@@ -1,3 +1,5 @@
+from urllib import response
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -5,16 +7,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    categories = ({
-                      'id': 1,
-                      'name': 'Moblie'
-                  }, {
-                      'id': 2,
-                      'name': 'Tablet'
-                  }, {
-                      'id': 3,
-                      'name': 'Laptop'
-                  })
 
     product = ({
                    "id": 1,
@@ -123,7 +115,7 @@ def index():
         product = [p for p in product if p['category_id'] == int(cate_id)]
 
 
-    return render_template('index.html', categories=categories, product=product)
+    return render_template('index.html', product=product)
 
 @app.route('/login')
 def login_view():
@@ -133,6 +125,21 @@ def login_view():
 def register_view():
     return render_template('register.html')
 
+@app.context_processor
+def common_responses():
+    categories = ({
+                      'id': 1,
+                      'name': 'Moblie'
+                  }, {
+                      'id': 2,
+                      'name': 'Tablet'
+                  }, {
+                      'id': 3,
+                      'name': 'Laptop'
+    })
+    return {
+        'categories': categories
+    }
 
 if __name__ == '__main__':
     with app.app_context():

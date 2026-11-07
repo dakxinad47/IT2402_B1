@@ -1,6 +1,11 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
+<ul class="pagination mt-2">
+  <li class="page-item"><a class="page-link" href="/?page=1">1</a></li>
+  <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+  <li class="page-item"><a class="page-link" href="/?page=3">3</a></li>
+</ul>
     {% if product %}
     <div class="row">
         {% for p in product %}

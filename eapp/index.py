@@ -1,8 +1,11 @@
 import math
 
-from flask import render_template, request
+from flask import render_template, request, redirect
 
-from eapp import app, dao
+from eapp import app, dao, login
+
+from flask_login import login_user
+
 
 @app.route('/')
 def index():
@@ -17,6 +20,17 @@ def index():
 def login_view():
     return render_template('login.html')
 
+@app.route('/login',methods =["post"])
+def login_process():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    user = dao.authenticate(username=username, password = password)
+    if user:
+        login_user(user = user)
+
+    return redirect('/admin')
+
 @app.route('/register')
 def register_view():
     return render_template('register.html')
@@ -26,6 +40,10 @@ def common_responses():
     return {
         'categories': dao.load_categories()
     }
+
+@login.user_loader
+def get_user(user_id):
+    return dao.get_user_by_id(user_id)
 
 if __name__ == '__main__':
     with app.app_context():

@@ -1,5 +1,6 @@
-from eapp.models import Category, Product
+from eapp.models import Category, Product, User
 from eapp import app
+import hashlib
 
 
 def load_categories():
@@ -22,3 +23,11 @@ def load_products(kw = None, cate_id=None, page=1):
 
 def product_count():
     return Product.query.count()
+
+def authenticate(username, password):
+
+    return User.query.filter(User.username == username.strip(),
+                            User.password == password).first()
+
+def get_user_id(user_id):
+    return User.query.get(user_id)
